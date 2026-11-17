@@ -1,0 +1,88 @@
+# Zinc Terminal Configuration
+# Generated automatically on first launch.
+# Changes take effect when starting a new terminal window.
+# When new settings ship, a fresh-template reference is written to
+# config.new next to this file (yours is never modified).
+config-version = 4
+
+# --- Font Settings ---
+# font-family: Empty by default for auto-discovery of system Nerd Fonts.
+# You can set an explicit font name (e.g. "JetBrainsMono Nerd Font") or TTF path.
+font-family = ""
+font-size = 12.0
+
+# --- Window Padding (in pixels) ---
+# Normal padding matches Foot defaults (25px).
+padding-x = 25
+padding-y = 25
+# Alt-screen padding is edge-to-edge (0px) for TUI apps like OpenCode, Neovim, and btop.
+alt-padding-x = 0
+alt-padding-y = 0
+
+# --- Window Decorations ---
+# decorations: auto (SSD on KDE/Sway, CSD on GNOME), none (borderless everywhere),
+# csd (always draw built-in header bar), or server (always request SSD).
+decorations = auto
+
+# --- Theme Colors (hex format: #RRGGBB) ---
+# Dark background and soft white text (matches Foot defaults).
+background = #0b0f11
+foreground = #dcdccc
+selection-background = #dcdccc
+selection-foreground = #0b0f11
+cursor-color = #dcdccc
+link-color = #8cd0d3
+
+# Background opacity: 0.0 (fully transparent) to 1.0 (fully opaque).
+background-opacity = 0.78
+
+# --- Cursor Settings ---
+# cursor-style: bar (beam), block, or underline
+cursor-style = bar
+cursor-blink = true
+cursor-thickness = 1.5
+
+# --- Flow Animations (cursor glide + trail + smooth scroll) ---
+# glide: the visible cursor flows to its cell instead of teleporting.
+# glide-ms: settle time per move (lower = snappier). trail-ms: fading
+# afterimage lifetime, 0 = off. smooth-scroll glides scrollback jumps.
+cursor-glide = true
+cursor-glide-ms = 60
+cursor-trail-ms = 0
+smooth-scroll = true
+smooth-scroll-ms = 110
+# scroll-step: scrollback rows per wheel notch (touchpads scale
+# proportionally off the same step; 1-100).
+scroll-step = 5
+
+# --- Selection Settings ---
+# If false, single click does not display a 1-cell highlight until dragged.
+selection-single-cell = false
+
+# --- Find Settings (Ctrl+Shift+F bottom bar) ---
+# Show index badges on visible matches (labels only, off by default).
+find-match-numbers = false
+# Badge digit pixel scale: 1 = tiny, 2 = superscript, 3 = large.
+find-number-scale = 2
+
+# --- Editor Settings (Ctrl+click file paths) ---
+# Empty = automatic: $EDITOR first, then xdg-open desktop default.
+# Template honors {file} (else appended), {line}, {col}. Examples:
+# editor-command = "zed {file}:{line}:{col}"
+# editor-command = "code --goto {file}:{line}:{col}"
+# editor-command = "nano +{line} {file}"
+editor-command = ""
+# Terminal editors open in place (typed into the shell, so they take
+# over the current window). GUI editors go above. Examples:
+# editor-command-terminal = "/home/sahil/.local/bin/zinc-open-file {line} {file}"
+# editor-command-terminal = "nvim +{line} {file}"
+editor-command-terminal = "/home/sahil/.local/bin/zinc-open-file {line} {file}"
+# Directory clicks (resolved paths that stat as directories):
+# dir-cd-mod types `cd '<dir>'` into the shell (primary screen only),
+# dir-open-mod opens the file manager. Values: ctrl, shift,
+# ctrl+shift, off. Empty set disables the gesture.
+dir-cd-mod = ctrl
+dir-open-mod = shift
+# After a gesture cd, list the directory too (`cd '<dir>' && ls).
+# The typed line echoes; set false for a bare cd.
+dir-cd-ls = true

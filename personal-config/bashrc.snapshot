@@ -1,0 +1,28 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Recover if the terminal starts in a directory that no longer exists.
+if ! pwd -P >/dev/null 2>&1; then
+    cd "$HOME" 2>/dev/null || :
+fi
+
+if command -v eza >/dev/null 2>&1; then
+    alias ls='eza --icons=auto --color=auto --group-directories-first'
+    alias ll='eza -l --icons=auto --color=auto --group-directories-first'
+    alias la='eza -la --icons=auto --color=auto --group-directories-first'
+else
+    alias ls='ls --color=auto'
+fi
+alias grep='grep --color=auto'
+PS1='\$ '
+
+# Report the current directory so terminal file links follow cd.
+__zinc_report_cwd() { printf "\033]7;file://%s%s\033\\" "${HOSTNAME:-localhost}" "$PWD"; }
+case ";${PROMPT_COMMAND:-};" in
+    *";__zinc_report_cwd;"*) ;;
+    *) PROMPT_COMMAND="__zinc_report_cwd${PROMPT_COMMAND:+;$PROMPT_COMMAND}" ;;
+esac

@@ -1,0 +1,13 @@
+#!/bin/sh
+line=$1
+file_path=$2
+mime=$(file --brief --mime-type -- "$file_path" 2>/dev/null)
+case "$mime" in
+    text/*|application/json|application/xml|application/javascript|application/x-shellscript|application/x-yaml|application/toml)
+        case "$line" in *[!0-9]*|''|0) line=1 ;; esac
+        exec micro "+$line" "$file_path"
+        ;;
+    *)
+        xdg-open "$file_path" >/dev/null 2>&1 &
+        ;;
+esac
